@@ -20,13 +20,18 @@ body {
     background-color: #dce4e9;
 }
 
+main {
+    display: grid;
+    justify-items: center;
+}
+
 container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30ch, 40ch));
+    grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
     margin-bottom: 2rem;
     gap: 1.5rem;
     padding: 2rem 1rem;
-    justify-content: center;
+    width: 90%;
 }
 
 container > .book {
