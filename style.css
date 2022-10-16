@@ -46,3 +46,56 @@ container > .book {
     padding: 1rem 0.5rem;
 
 }
+
+.add-book {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.1rem;
+    box-shadow: 5px 5px 5px rgb(178 178 178);
+}
+
+.add-book:hover {
+    background-color: rgb(41, 41, 41);
+}
+
+.github {
+    font-size: 1.5rem;
+    height: 2rem;
+    width:auto;
+}
+
+.github:hover {
+    transform: rotate(720deg);
+    transition: transform 1.5s;
+}
+
+.edit,
+.remove {
+    height: 1.5rem;
+    width: auto;
+}
+
+.book-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.edit-button,
+.remove-button {
+    padding: 0;
+    border: none;
+    background: none;
+    height: 1.5rem;
+    width: auto;
+}
+
+.edit-button:hover,
+.remove-button:hover {
+    transform: rotate(360deg);
+    transition: transform 1s;
+}
