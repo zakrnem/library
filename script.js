@@ -23,8 +23,8 @@ addBookButton.addEventListener('click', () => {
   book3.className = 'book';
   book3.innerHTML = 
     `<div class="book-buttons">
-    <button class="edit-button"><img src="edit-svgrepo-com.svg" alt="Edit" class="edit"></button>
-    <button class="remove-button"><img src="remove-svgrepo-com.svg" alt="Remove" class="remove"></button>
+    <img src="edit-svgrepo-com.svg" alt="Edit" class="edit">
+    <img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
     </div>
     <div class="title">${book1.title}</div>
     <div class="author">${book1.author}</div>
@@ -33,11 +33,16 @@ addBookButton.addEventListener('click', () => {
   container.appendChild(book3);
 });
 
-removeBookButton = document.getElementsByClassName('remove-button');
 
-removeBookButton.addEventListener('click', () => {
-  console.log('Remove')
-})
+let itemList = document.querySelector('#book-grid');
+itemList.addEventListener('click', removeItem);
+
+function removeItem(e) {
+  if (e.target.classList.contains('remove')) {
+    let item = e.target.parentElement.parentElement;
+    itemList.removeChild(item);
+  }
+}
 
 function addBookToLibrary() {
   // do stuff here

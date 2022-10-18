@@ -85,8 +85,8 @@ container > .book {
     margin-bottom: 1rem;
 }
 
-.edit-button,
-.remove-button {
+.edit,
+.remove {
     padding: 0;
     border: none;
     background: none;
@@ -94,8 +94,8 @@ container > .book {
     width: auto;
 }
 
-.edit-button:hover,
-.remove-button:hover {
+.edit:hover,
+.remove:hover {
     transform: rotate(360deg);
     transition: transform 1s;
 }
