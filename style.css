@@ -1,3 +1,14 @@
+@font-face {
+    font-family: body-font;
+    src: url(fonts/arvo.regular.ttf);
+  }
+
+@font-face {
+font-family: title-font;
+src: url(fonts/arvo.bold.ttf);
+}
+  
+
 * {
     margin: 0;
     padding: 0;
@@ -16,8 +27,14 @@ header > img {
     height: 2rem;
 }
 
+header > h1 {
+    font-family: title-font;
+}
+
 body {
     background-color: #dce4e9;
+    font-size: 1.1rem;
+    font-family: body-font;
 }
 
 main {
@@ -27,7 +44,7 @@ main {
 
 container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25ch, 1fr));
     margin-bottom: 2rem;
     gap: 1.5rem;
     padding: 2rem 1rem;
@@ -47,17 +64,17 @@ container > .book {
 
 }
 
-.add-book {
+button {
     padding: 0.5rem 1rem;
     border-radius: 10px;
     background-color: black;
     color: white;
-    font-weight: bolder;
-    font-size: 1.1rem;
+    font-size: inherit;
     box-shadow: 5px 5px 5px rgb(178 178 178);
+    font-family: inherit;
 }
 
-.add-book:hover {
+button:hover {
     background-color: rgb(41, 41, 41);
 }
 
@@ -106,8 +123,10 @@ container > .book {
     justify-self: center;
     background-color: white;
     border-radius: 10px;
-    padding: 1rem 0.75rem;
+    padding: 2rem;
+    margin-top: 30vh;
     border: solid black;
+    /* display: none; */
 }
 
 .new-book-form > form {
@@ -115,5 +134,28 @@ container > .book {
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
+}
+
+input[type="text"] {
+    display: block;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0.4rem 0.5rem;
+    margin-top: 0.3rem;
+    border-radius: 5px;
+}
+
+.input-container {
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+input[type="radio"] {
+    margin-top: 1rem;
+    margin-left: 0.5rem;
 }
 
