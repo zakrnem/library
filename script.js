@@ -17,20 +17,15 @@ const book2 = new Book("Man's Search for Meaning", "Viktor Frankl", 188, "Read")
 container = document.querySelector('container');
 
 addBookButton = document.querySelector('.add-book');
+addBookWindow = document.querySelector('.new-book-form');
 
 addBookButton.addEventListener('click', () => {
-  book3 = document.createElement('div');
-  book3.className = 'book';
-  book3.innerHTML = 
-    `<div class="book-buttons">
-    <img src="edit-svgrepo-com.svg" alt="Edit" class="edit">
-    <img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
-    </div>
-    <div class="title">${book1.title}</div>
-    <div class="author">${book1.author}</div>
-    <div class="pages">${book1.pages}</div>
-    <div class="read">${book1.read}</div>`;
-  container.appendChild(book3);
+  addBookWindow.style.display = 'block';
+  document.addEventListener('click', (e) => {
+    if (e.target.className === 'new-book-form') {
+      addBookWindow.style.display = 'none';
+    }
+  })
 });
 
 
@@ -48,6 +43,14 @@ function addBookToLibrary() {
   // do stuff here
   book3 = document.createElement('div');
   book3.className = 'book';
-  book3.textContent = book1.sayInfo();
+  book3.innerHTML = 
+    `<div class="book-buttons">
+    <img src="edit-svgrepo-com.svg" alt="Edit" class="edit">
+    <img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
+    </div>
+    <div class="title">${book1.title}</div>
+    <div class="author">${book1.author}</div>
+    <div class="pages">${book1.pages}</div>
+    <div class="read">${book1.read}</div>`;
   container.appendChild(book3);
 }

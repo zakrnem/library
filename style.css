@@ -28,13 +28,13 @@ header > img {
 }
 
 header > h1 {
-    font-family: title-font;
+    font-family: title-font, sans-serif, serif;
 }
 
 body {
     background-color: #dce4e9;
     font-size: 1.1rem;
-    font-family: body-font;
+    font-family: body-font, sans-serif, serif;
 }
 
 main {
