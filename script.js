@@ -11,36 +11,38 @@ function Book(title, author, pages, read) {
    }
 }
 
-const book1 = new Book("48 Laws of Power", "Robert Greene", 452, "Not read");
-
 container = document.querySelector('container');
 
 addBookButton = document.querySelector('.add-book');
 addBookWindow = document.querySelector('.new-book-form');
-submitBook = document.getElementById('submit-book')
+submitBook = document.getElementById('submit-book');
 
 addBookButton.addEventListener('click', () => {
   addBookWindow.style.display = 'block';
   document.addEventListener('click', (e) => {
+    e.preventDefault;
     if (e.target.className === 'new-book-form') {
       addBookWindow.style.display = 'none';
     }
   })
 });
 
-submitBook.addEventListener('click', () => {
-  newBookTitle = document.getElementById('book-title').value;
-  newBookAuthor = document.getElementById('book-author').value;
-  newBookPages = document.getElementById('book-pages').value;
-  readYes = document.getElementById('book-read-yes').checked;
+
+addBookForm = document.getElementById('add-book');
+addBookForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  let bookTitle = document.getElementById('book-title').value;
+  let bookAuthor = document.getElementById('book-author').value;
+  let bookPages = document.getElementById('book-pages').value;
+  let readYes = document.getElementById('book-read-yes').checked;
   if (readYes === true) {
-    newBookRead = 'Read';
+    bookRead = 'Read';
   }
   else {
-    newBookRead = 'Not read';
+    bookRead = 'Not read';
   }
-  const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
-  alert(newBook.sayInfo());
+  const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead)
+  addBookToLibrary(newBook);
 })
 
 
@@ -54,18 +56,18 @@ function removeItem(e) {
   }
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(newBook) {
   // do stuff here
-  book3 = document.createElement('div');
-  book3.className = 'book';
-  book3.innerHTML = 
+  newItem = document.createElement('div');
+  newItem.className = 'book';
+  newItem.innerHTML = 
     `<div class="book-buttons">
     <img src="edit-svgrepo-com.svg" alt="Edit" class="edit">
     <img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
     </div>
-    <div class="title">${book1.title}</div>
-    <div class="author">${book1.author}</div>
-    <div class="pages">${book1.pages}</div>
-    <div class="read">${book1.read}</div>`;
-  container.appendChild(book3);
+    <div class="title">${newBook.title}</div>
+    <div class="author">${newBook.author}</div>
+    <div class="pages">${newBook.pages}</div>
+    <div class="read">${newBook.read}</div>`;
+  container.appendChild(newItem);
 }
