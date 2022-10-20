@@ -43,6 +43,7 @@ addBookForm.addEventListener('submit', (event) => {
   }
   const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead)
   addBookToLibrary(newBook);
+  addBookForm.reset();
 })
 
 
@@ -70,4 +71,5 @@ function addBookToLibrary(newBook) {
     <div class="pages">${newBook.pages}</div>
     <div class="read">${newBook.read}</div>`;
   container.appendChild(newItem);
+  addBookWindow.style.display = 'none';
 }
