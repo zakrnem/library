@@ -12,12 +12,12 @@ function Book(title, author, pages, read) {
 }
 
 const book1 = new Book("48 Laws of Power", "Robert Greene", 452, "Not read");
-const book2 = new Book("Man's Search for Meaning", "Viktor Frankl", 188, "Read");
 
 container = document.querySelector('container');
 
 addBookButton = document.querySelector('.add-book');
 addBookWindow = document.querySelector('.new-book-form');
+submitBook = document.getElementById('submit-book')
 
 addBookButton.addEventListener('click', () => {
   addBookWindow.style.display = 'block';
@@ -27,6 +27,21 @@ addBookButton.addEventListener('click', () => {
     }
   })
 });
+
+submitBook.addEventListener('click', () => {
+  newBookTitle = document.getElementById('book-title').value;
+  newBookAuthor = document.getElementById('book-author').value;
+  newBookPages = document.getElementById('book-pages').value;
+  readYes = document.getElementById('book-read-yes').checked;
+  if (readYes === true) {
+    newBookRead = 'Read';
+  }
+  else {
+    newBookRead = 'Not read';
+  }
+  const newBook = new Book(newBookTitle, newBookAuthor, newBookPages, newBookRead);
+  alert(newBook.sayInfo());
+})
 
 
 let itemList = document.querySelector('#book-grid');
