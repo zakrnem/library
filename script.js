@@ -1,6 +1,4 @@
-let myLibrary = [];
-
-//constructor function Syntax
+//Object constructor function
 function Book(title, author, pages, read) {
   this.title = title
   this.author = author
@@ -11,23 +9,21 @@ function Book(title, author, pages, read) {
    }
 }
 
-container = document.querySelector('container');
-
 addBookButton = document.querySelector('.add-book');
 addBookWindow = document.querySelector('.new-book-form');
 submitBook = document.getElementById('submit-book');
 
+//Prompts add book form & closes it when clicking outside the form
 addBookButton.addEventListener('click', () => {
   addBookWindow.style.display = 'block';
   document.addEventListener('click', (e) => {
-    e.preventDefault;
     if (e.target.className === 'new-book-form') {
       addBookWindow.style.display = 'none';
     }
   })
 });
 
-
+//Inserts form inputs into the newBook object
 addBookForm = document.getElementById('add-book');
 addBookForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -41,24 +37,15 @@ addBookForm.addEventListener('submit', (event) => {
   else {
     bookRead = 'Not read';
   }
-  const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead)
+  const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
   addBookToLibrary(newBook);
   addBookForm.reset();
 })
 
+let container = document.querySelector('container');
 
-let itemList = document.querySelector('#book-grid');
-itemList.addEventListener('click', removeItem);
-
-function removeItem(e) {
-  if (e.target.classList.contains('remove')) {
-    let item = e.target.parentElement.parentElement;
-    itemList.removeChild(item);
-  }
-}
-
+//Inserts the newBook object properties into the DOM
 function addBookToLibrary(newBook) {
-  // do stuff here
   newItem = document.createElement('div');
   newItem.className = 'book';
   newItem.innerHTML = 
@@ -72,4 +59,29 @@ function addBookToLibrary(newBook) {
     <div class="read">${newBook.read}</div>`;
   container.appendChild(newItem);
   addBookWindow.style.display = 'none';
+}
+
+let itemList = document.querySelector('#book-grid');
+itemList.addEventListener('click', removeItem);
+
+//Removes books from the grid
+function removeItem(e) {
+  if (e.target.classList.contains('remove')) {
+    let item = e.target.parentElement.parentElement;
+    itemList.removeChild(item);
+  }
+}
+
+//Edits existing books from the grid
+itemList.addEventListener('click', editItem);
+function editItem(e) {
+  if (e.target.classList.contains('edit')) {
+    addBookWindow.style.display = 'block';
+    
+    document.addEventListener('click', (e) => {
+      if (e.target.className === 'new-book-form') {
+        addBookWindow.style.display = 'none';
+      }
+    });
+  }
 }
