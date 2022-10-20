@@ -84,4 +84,9 @@ function editItem(e) {
       }
     });
   }
+  console.log(e.target.parent) //get target parent;
+  // document.getElementById('book-title').value = e.target.textContent;
+  document.getElementById('book-author').value;
+  document.getElementById('book-pages').value;
+  document.getElementById('book-read-yes').checked;
 }
