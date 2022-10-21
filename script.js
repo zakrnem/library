@@ -72,7 +72,7 @@ function removeItem(e) {
   }
 }
 
-//Edits existing books from the grid
+/* //Edits existing books from the grid
 itemList.addEventListener('click', editItem);
 function editItem(e) {
   if (e.target.classList.contains('edit')) {
@@ -84,9 +84,21 @@ function editItem(e) {
       }
     });
   }
-  console.log(e.target.parent) //get target parent;
-  // document.getElementById('book-title').value = e.target.textContent;
+  
+  //get target parent;
+  let selectedItem = e.target.id;
+  console.log(e.target.id);
+
   document.getElementById('book-author').value;
   document.getElementById('book-pages').value;
   document.getElementById('book-read-yes').checked;
+
+  //e.target.parentNode.parentNode;
+  // document.getElementById('book-title').value = e.target.textContent;
 }
+
+let varCount = 0;
+function newVariable() {
+  varCount += 1;
+  let var
+} */
