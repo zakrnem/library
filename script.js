@@ -49,10 +49,7 @@ function addBookToLibrary(newBook) {
   newItem = document.createElement('div');
   newItem.className = 'book';
   newItem.innerHTML = 
-    `<div class="book-buttons">
-    <img src="edit-svgrepo-com.svg" alt="Edit" class="edit">
-    <img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
-    </div>
+    `<img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
     <div class="title">${newBook.title}</div>
     <div class="author">${newBook.author}</div>
     <div class="pages">${newBook.pages}</div>
@@ -67,7 +64,7 @@ itemList.addEventListener('click', removeItem);
 //Removes books from the grid
 function removeItem(e) {
   if (e.target.classList.contains('remove')) {
-    let item = e.target.parentElement.parentElement;
+    let item = e.target.parentElement;
     itemList.removeChild(item);
   }
 }
