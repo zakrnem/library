@@ -50,16 +50,36 @@ let container = document.querySelector('container');
 //Inserts the newBook object properties into the DOM
 function addBookToLibrary(newBook) {
   newItem = document.createElement('div');
-  newItem.className = 'book';
-  const bookHTML = 
-    `<div class="book">
-    <img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
-    <div class="title">${newBook.title}</div>
-    <div class="author">${newBook.author}</div>
-    <div class="pages">${newBook.pages}</div>
-    <div class="read">${newBook.read}</div>
-    </div>`;
-  container.insertAdjacentHTML("beforeend", bookHTML);
+  newItem.className = 'book'
+  
+  removeButton = document.createElement('img')
+  removeButton.src = 'remove-svgrepo-com.svg'
+  removeButton.alt = 'Remove'
+  removeButton.className = 'remove'
+  newItem.appendChild(removeButton)
+
+  bookTitle = document.createElement('div')
+  bookTitle.className = 'title'
+  bookTitle.textContent = newBook.title
+  newItem.appendChild(bookTitle)
+
+  bookAuthor = document.createElement('div')
+  bookAuthor.className = 'author'
+  bookAuthor.textContent = newBook.author
+  newItem.appendChild(bookAuthor)
+
+  bookPages = document.createElement('div')
+  bookPages.className = 'pages'
+  bookPages.textContent = newBook.pages
+  newItem.appendChild(bookPages)
+
+  bookRead = document.createElement('div')
+  bookRead.className = 'read'
+  bookRead.textContent = newBook.read
+  newItem.appendChild(bookRead)
+
+  container.appendChild(newItem)
+
   addBookWindow.style.display = 'none';
 }
 
