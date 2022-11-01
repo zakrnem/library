@@ -51,13 +51,15 @@ let container = document.querySelector('container');
 function addBookToLibrary(newBook) {
   newItem = document.createElement('div');
   newItem.className = 'book';
-  newItem.innerHTML = 
-    `<img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
+  const bookHTML = 
+    `<div class="book">
+    <img src="remove-svgrepo-com.svg" alt="Remove" class="remove">
     <div class="title">${newBook.title}</div>
     <div class="author">${newBook.author}</div>
     <div class="pages">${newBook.pages}</div>
-    <div class="read">${newBook.read}</div>`;
-  container.appendChild(newItem);
+    <div class="read">${newBook.read}</div>
+    </div>`;
+  container.insertAdjacentHTML("beforeend", bookHTML);
   addBookWindow.style.display = 'none';
 }
 
