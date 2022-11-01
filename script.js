@@ -1,13 +1,16 @@
-//Object constructor function
-function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read
-  this.sayInfo = function() {
-    return `${title}, ${author}, ${pages}, ${read}.`;
-   }
+//Class
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+  }
+  sayInfo() {
+    return `${this.title}, ${this.author}, ${this.pages}, ${this.read}.`
+  }
 }
+
 
 addBookButton = document.querySelector('.add-book');
 addBookWindow = document.querySelector('.new-book-form');
@@ -68,34 +71,3 @@ function removeItem(e) {
     itemList.removeChild(item);
   }
 }
-
-/* //Edits existing books from the grid
-itemList.addEventListener('click', editItem);
-function editItem(e) {
-  if (e.target.classList.contains('edit')) {
-    addBookWindow.style.display = 'block';
-    
-    document.addEventListener('click', (e) => {
-      if (e.target.className === 'new-book-form') {
-        addBookWindow.style.display = 'none';
-      }
-    });
-  }
-  
-  //get target parent;
-  let selectedItem = e.target.id;
-  console.log(e.target.id);
-
-  document.getElementById('book-author').value;
-  document.getElementById('book-pages').value;
-  document.getElementById('book-read-yes').checked;
-
-  //e.target.parentNode.parentNode;
-  // document.getElementById('book-title').value = e.target.textContent;
-}
-
-let varCount = 0;
-function newVariable() {
-  varCount += 1;
-  let var
-} */
